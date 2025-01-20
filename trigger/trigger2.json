@@ -1,10 +1,9 @@
 {
 	"name": "trigger2",
 	"properties": {
-		"annotations": [
-			"keyvan"
-		],
-		"runtimeState": "Stopped",
+		"description": "keuyv as wyudgkj",
+		"annotations": [],
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -17,7 +16,7 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 2,
+				"interval": 5,
 				"startTime": "2025-01-20T12:13:00",
 				"timeZone": "New Zealand Standard Time"
 			}
