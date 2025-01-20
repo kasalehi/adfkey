@@ -12,18 +12,13 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [
-				{
-					"dataset": {
-						"referenceName": "SnowflakeTable1",
-						"type": "DatasetReference"
-					},
-					"name": "sink1"
-				}
-			],
+			"sinks": [],
 			"transformations": [
 				{
 					"name": "filter1"
+				},
+				{
+					"name": "aggregate1"
 				}
 			],
 			"scriptLines": [
@@ -37,22 +32,8 @@
 				"     validateSchema: true,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 filter(salary>=2000) ~> filter1",
-				"filter1 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     input(",
-				"          NAME as string,",
-				"          AGE as string,",
-				"          EXPERIENCE as string,",
-				"          SALARY as string",
-				"     ),",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     stageInsert: true) ~> sink1"
+				"filter1 aggregate(groupBy(age,",
+				"          experience)) ~> aggregate1"
 			]
 		}
 	}
