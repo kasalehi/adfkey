@@ -232,6 +232,9 @@
 					"transformations": [
 						{
 							"name": "filter1"
+						},
+						{
+							"name": "aggregate1"
 						}
 					],
 					"scriptLines": [
@@ -245,8 +248,11 @@
 						"     validateSchema: true,",
 						"     ignoreNoFilesFound: false) ~> source1",
 						"source1 filter(salary>=2000) ~> filter1",
-						"filter1 sink(allowSchemaDrift: true,",
-						"     validateSchema: false,",
+						"filter1 aggregate(groupBy(age,",
+						"          experience),",
+						"     salary = avg(salary)) ~> aggregate1",
+						"aggregate1 sink(allowSchemaDrift: true,",
+						"     validateSchema: true,",
 						"     input(",
 						"          NAME as string,",
 						"          AGE as string,",
