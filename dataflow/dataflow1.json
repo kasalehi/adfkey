@@ -17,9 +17,9 @@
 			"scriptLines": [
 				"source(output(",
 				"          Name as string,",
-				"          age as string,",
-				"          experience as string,",
-				"          salary as string",
+				"          age as integer,",
+				"          experience as integer,",
+				"          salary as float",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: true,",
