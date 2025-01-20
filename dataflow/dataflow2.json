@@ -14,7 +14,11 @@
 			],
 			"sinks": [
 				{
-					"name": "sink1"
+					"dataset": {
+						"referenceName": "SnowflakeTable1",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
 				}
 			],
 			"transformations": [
@@ -49,8 +53,20 @@
 				"select1 filter(order_status==\"delivered\") ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
+				"     input(",
+				"          NAME as string,",
+				"          AGE as string,",
+				"          EXPERIENCE as string,",
+				"          SALARY as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     stageInsert: true) ~> sink2"
 			]
 		}
 	}
