@@ -220,7 +220,12 @@
 						"     format: 'table',",
 						"     skipDuplicateMapInputs: true,",
 						"     skipDuplicateMapOutputs: true,",
-						"     stageInsert: true) ~> sink1"
+						"     stageInsert: true,",
+						"     mapColumn(",
+						"          AGE = age,",
+						"          EXPERIENCE = experience,",
+						"          SALARY = salary",
+						"     )) ~> sink1"
 					]
 				}
 			},
