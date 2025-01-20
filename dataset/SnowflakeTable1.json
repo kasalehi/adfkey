@@ -1,0 +1,37 @@
+{
+	"name": "SnowflakeTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Snowflake1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [
+			{
+				"name": "NAME",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "AGE",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "EXPERIENCE",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "SALARY",
+				"type": "FLOAT"
+			}
+		],
+		"typeProperties": {
+			"schema": "KEY1",
+			"table": "KEY3"
+		}
+	}
+}
