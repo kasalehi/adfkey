@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "SnowflakeTable1",
+						"referenceName": "SnowflakeTable2",
 						"type": "DatasetReference"
 					},
 					"name": "sink2"
@@ -54,10 +54,9 @@
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     input(",
-				"          NAME as string,",
-				"          AGE as string,",
-				"          EXPERIENCE as string,",
-				"          SALARY as string",
+				"          ORDER_ID as string,",
+				"          CUSTOMER_ID as string,",
+				"          ORDER_STATUS as string",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
@@ -68,7 +67,9 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     stageInsert: true,",
 				"     mapColumn(",
-				"          NAME = order_id",
+				"          ORDER_ID = order_id,",
+				"          CUSTOMER_ID = customer_id,",
+				"          ORDER_STATUS = order_status",
 				"     )) ~> sink2"
 			]
 		}
