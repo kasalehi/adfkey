@@ -31,7 +31,7 @@
 		],
 		"typeProperties": {
 			"schema": "KEY1",
-			"table": "KEY3"
+			"table": "orders"
 		}
 	}
 }
