@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "select1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          order_id as string,",
@@ -26,8 +30,20 @@
 				"          order_estimated_delivery_date as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     validateSchema: true,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 select(mapColumn(",
+				"          order_id,",
+				"          customer_id,",
+				"          order_status,",
+				"          order_purchase_timestamp,",
+				"          order_approved_at,",
+				"          order_delivered_carrier_date,",
+				"          order_delivered_customer_date,",
+				"          order_estimated_delivery_date",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
