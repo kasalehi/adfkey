@@ -34,7 +34,7 @@
 				"source1 filter(salary>=2000) ~> filter1",
 				"filter1 aggregate(groupBy(age,",
 				"          experience),",
-				"     total_sum = sum(salary)) ~> aggregate1"
+				"     salary = avg(salary)) ~> aggregate1"
 			]
 		}
 	}
