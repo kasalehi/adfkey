@@ -14,10 +14,6 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "SnowflakeTable1",
-						"type": "DatasetReference"
-					},
 					"name": "sink1"
 				}
 			],
@@ -49,20 +45,8 @@
 				"     salary = avg(salary)) ~> aggregate1",
 				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
-				"     input(",
-				"          NAME as string,",
-				"          AGE as string,",
-				"          EXPERIENCE as string,",
-				"          SALARY as string",
-				"     ),",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     stageInsert: true,",
 				"     mapColumn(",
 				"          AGE = age,",
 				"          EXPERIENCE = experience,",
